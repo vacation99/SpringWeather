@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Main</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h2>Погода</h2>
+<form th:method="post" th:action="@{/main}">
+    <table>
+        <tr>
+            <td width="225">
+                <label for="chose">Выберите город</label>
+                <select id="chose" name="city">
+                    <option>Ярославль</option>
+                    <option>Москва</option>
+                    <option>Лондон</option>
+                    <option>Вашингтон</option>
+                </select>
+            </td>
+            <td>
+                <button type="submit">Получить погоду</button>
+            </td>
+        </tr>
+    </table>
+</form> <br/> <hr/> <br/>
+<table border="1">
+    <tr>
+        <th>Город:</th>
+        <th>Восход солнца:</th>
+        <th>Закат солнца:</th>
+        <th>Температура мин. :</th>
+        <th>Температура макс. :</th>
+        <th>Температура:</th>
+        <th>Ощущается как:</th>
+        <th>Название ветра:</th>
+        <th>Скорость ветра (м/c):</th>
+        <th>Направление:</th>
+        <th>Направление в градусах:</th>
+        <th>Название облаков:</th>
+        <th>Погода:</th>
+    </tr>
+    <tr th:each="el : ${weather}">
+        <td th:text="${el.city}"/>
+        <td th:text="${el.sunRise}"/>
+        <td th:text="${el.SunSet}"/>
+        <td th:text="${el.temperatureMax}"/>
+        <td th:text="${el.temperatureMin}"/>
+        <td th:text="${el.temperatureValue}"/>
+        <td th:text="${el.feelsLike}"/>
+        <td th:text="${el.speedName}"/>
+        <td th:text="${el.speedValue}"/>
+        <td th:text="${el.directionName}"/>
+        <td th:text="${el.directionValue}"/>
+        <td th:text="${el.CloudsName}"/>
+        <td th:text="${el.weather}"/>
+    </tr>
+</table>
+</body>
+</html>
