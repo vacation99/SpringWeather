@@ -1,4 +1,4 @@
-# SpringWeather_v.2
+# SpringWeather
 
 Необходимо в консоли PostgreSQL создать БД с любым названием, далее в application.properties изменить следующие параррметры: 
 
